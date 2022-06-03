@@ -1,0 +1,28 @@
+name: Test Analytics File Uploader
+description: Uploads files to Buildkite Test Analytics
+author: campspot
+requirements: []
+configuration:
+  properties:
+    artifact_location:
+      type: string
+    file_pattern:
+      type: string
+    dry_run:
+      type: boolean
+    buildkite_analytics_token:
+      type: string
+    buildkite_build_id:
+      type: string
+    buildkite_build_number:
+      type: string
+    buildkite_job_id:
+      type: string
+    buildkite_branch:
+      type: string
+    buildkite_commit:
+      type: string
+    buildkite_message:
+      type: string
+    buildkite_url:
+      type: string
