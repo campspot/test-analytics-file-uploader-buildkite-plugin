@@ -13,6 +13,11 @@ BUILDKITE_COMMIT="$BUILDKITE_PLUGIN_TEST_ANALYTICS_FILE_UPLOADER_BUILDKITE_COMMI
 BUILDKITE_MESSAGE="$BUILDKITE_PLUGIN_TEST_ANALYTICS_FILE_UPLOADER_BUILDKITE_MESSAGE"
 BUILDKITE_URL="$BUILDKITE_PLUGIN_TEST_ANALYTICS_FILE_UPLOADER_BUILDKITE_URL"
 
+ARTIFACTS_FILE_QUERY="${ARTIFACT_LOCATION}/"${FILE_PATTERN}
+
+echo "--- Downloading artifacts"
+buildkite-agent artifact download $ARTIFACTS_FILE_QUERY artifacts/
+
 echo "--- Uploading artifacts to Buildkite Test Analytics"
 
 if [ "$DRY_RUN" = true ]; then
@@ -29,11 +34,12 @@ if [ "$DRY_RUN" = true ]; then
   echo "BUILDKITE_BUILD_URL: ${BUILDKITE_BUILD_URL}"
 fi
 
-FILE_LOCATION="${ARTIFACT_LOCATION}/${FILE_PATTERN}"
-for FILE in ${FILE_LOCATION}; do
+FILE_LOCATION="artifacts/"${FILE_PATTERN}
+for FILE in $FILE_LOCATION; do
   if [ "$DRY_RUN" = true ]; then
     echo "Upload ${FILE}..."
   else
+    echo "Upload ${FILE}..."
     curl -X POST \
       -H "Authorization: Token token=$BUILDKITE_ANALYTICS_TOKEN" \
       -F "format=junit" \
