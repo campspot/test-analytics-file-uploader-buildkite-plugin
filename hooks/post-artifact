@@ -16,6 +16,7 @@ BUILDKITE_URL="$BUILDKITE_PLUGIN_TEST_ANALYTICS_FILE_UPLOADER_BUILDKITE_URL"
 ARTIFACTS_FILE_QUERY="${ARTIFACT_LOCATION}/"${FILE_PATTERN}
 
 echo "--- Downloading artifacts"
+mkdir artifacts
 buildkite-agent artifact download $ARTIFACTS_FILE_QUERY artifacts/
 
 echo "--- Uploading artifacts to Buildkite Test Analytics"
