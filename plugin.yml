@@ -16,6 +16,8 @@ configuration:
       type: string
     buildkite_build_number:
       type: string
+    buildkite_step_id:
+      type: string
     buildkite_job_id:
       type: string
     buildkite_branch:

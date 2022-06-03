@@ -36,6 +36,7 @@ Used for testing, provides logging to help when debugging and it will skip uploa
 ### `buildkite_analytics_token` (Required, string)
 ### `buildkite_build_id` (Required, string)
 ### `buildkite_build_number` (Required, string)
+### `buildkite_step_id` (Required, string)
 ### `buildkite_job_id` (Required, string)
 ### `buildkite_branch` (Required, string)
 ### `buildkite_commit` (Required, string)
