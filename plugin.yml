@@ -12,19 +12,3 @@ configuration:
       type: boolean
     buildkite_analytics_token:
       type: string
-    buildkite_build_id:
-      type: string
-    buildkite_build_number:
-      type: string
-    buildkite_step_id:
-      type: string
-    buildkite_job_id:
-      type: string
-    buildkite_branch:
-      type: string
-    buildkite_commit:
-      type: string
-    buildkite_message:
-      type: string
-    buildkite_build_url:
-      type: string
