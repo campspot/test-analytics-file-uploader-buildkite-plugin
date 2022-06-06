@@ -10,7 +10,11 @@ ARTIFACTS_FILE_QUERY="${ARTIFACT_LOCATION}/${FILE_PATTERN}"
 
 echo "--- Downloading artifacts"
 mkdir -p $ARTIFACT_LOCATION
-buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" "${ARTIFACT_LOCATION}/" --build $BUILDKITE_BUILD_ID --step $BUILDKITE_STEP_ID --debug --debug-http
+if [ "$DRY_RUN" = true ]; then
+  buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" "${ARTIFACT_LOCATION}/" --build $BUILDKITE_BUILD_ID --step $BUILDKITE_JOB_ID --debug --debug-http
+else
+  buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" "${ARTIFACT_LOCATION}/" --build $BUILDKITE_BUILD_ID --step $BUILDKITE_JOB_ID
+fi
 
 echo "--- Uploading artifacts to Buildkite Test Analytics"
 
