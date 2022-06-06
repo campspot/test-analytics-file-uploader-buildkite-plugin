@@ -18,7 +18,7 @@ steps:
           buildkite_branch: $BUILDKITE_BRANCH
           buildkite_commit: $BUILDKITE_COMMIT
           buildkite_message: $BUILDKITE_MESSAGE
-          buildkite_url: $BUILDKITE_URL
+          buildkite_build_url: $BUILDKITE_URL
 ```
 
 ## Configuration
@@ -41,4 +41,4 @@ Used for testing, provides logging to help when debugging and it will skip uploa
 ### `buildkite_branch` (Required, string)
 ### `buildkite_commit` (Required, string)
 ### `buildkite_message` (Required, string)
-### `buildkite_url` (Required, string)
+### `buildkite_build_url` (Required, string)

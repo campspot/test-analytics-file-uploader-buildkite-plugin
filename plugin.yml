@@ -26,5 +26,5 @@ configuration:
       type: string
     buildkite_message:
       type: string
-    buildkite_url:
+    buildkite_build_url:
       type: string
