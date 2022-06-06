@@ -9,11 +9,10 @@ BUILDKITE_ANALYTICS_TOKEN="$BUILDKITE_PLUGIN_TEST_ANALYTICS_FILE_UPLOADER_BUILDK
 ARTIFACTS_FILE_QUERY="${ARTIFACT_LOCATION}/${FILE_PATTERN}"
 
 echo "--- Downloading artifacts"
-mkdir -p $ARTIFACT_LOCATION
 if [ "$DRY_RUN" = true ]; then
-  buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" "${ARTIFACT_LOCATION}/" --build $BUILDKITE_BUILD_ID --step $BUILDKITE_JOB_ID --debug --debug-http
+  buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" . --build $BUILDKITE_BUILD_ID --step $BUILDKITE_JOB_ID --debug --debug-http
 else
-  buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" "${ARTIFACT_LOCATION}/" --build $BUILDKITE_BUILD_ID --step $BUILDKITE_JOB_ID
+  buildkite-agent artifact download "${ARTIFACTS_FILE_QUERY}" . --build $BUILDKITE_BUILD_ID --step $BUILDKITE_JOB_ID
 fi
 
 echo "--- Uploading artifacts to Buildkite Test Analytics"
